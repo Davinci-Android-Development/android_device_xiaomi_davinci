@@ -55,7 +55,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     init.qcom.rc \
     ueventd.qcom.rc \
-    init.safailnet.rc
+    init.safailnet.rc \
+    init.power.rc
 
 # Display
 PRODUCT_PACKAGES += \

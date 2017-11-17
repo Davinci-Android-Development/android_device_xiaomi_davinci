@@ -1,3 +1,4 @@
+import /system/etc/init/init.power.rc
 import /system/etc/init/init.safailnet.rc
 
 on boot
