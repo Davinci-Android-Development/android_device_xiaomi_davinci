@@ -156,10 +156,6 @@ PRODUCT_BOOT_JARS += \
 PRODUCT_PACKAGES += \
     textclassifier.bundle1
 
-# VNDK-SP
-PRODUCT_PACKAGES += \
-    vndk_package
-
 # USB
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service.davinci
