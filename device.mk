@@ -77,6 +77,9 @@ PRODUCT_PACKAGES += \
     android.hidl.manager@1.0 \
     android.hidl.manager@1.0_system
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/manifest.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/vintf/manifest.xml
+
 # IFAA manager
 PRODUCT_PACKAGES += \
     IFAAService \
