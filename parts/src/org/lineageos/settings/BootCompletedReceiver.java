@@ -35,5 +35,7 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         if (DEBUG) Log.d(TAG, "Received boot completed intent");
         PopupCameraUtils.startService(context);
         DiracUtils.initialize(context);
+
+        new DiracUtils(context);
     }
 }
