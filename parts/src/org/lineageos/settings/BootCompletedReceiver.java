@@ -46,7 +46,7 @@ public class BootCompletedReceiver extends BroadcastReceiver {
             DozeUtils.startService(context);
         }
 
-        DiracUtils.initialize(context);
+        new DiracUtils(context);
         PopupCameraUtils.startService(context);
 
         boolean dcDimmingEnabled = sharedPrefs.getBoolean(DC_DIMMING_ENABLE_KEY, false);
