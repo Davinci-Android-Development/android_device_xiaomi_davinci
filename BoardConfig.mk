@@ -45,6 +45,9 @@ include vendor/ANXCamera/anx-board.mk
 # Assert
 TARGET_OTA_ASSERT_DEVICE := davinci,davinciin
 
+# APEX
+DEXPREOPT_GENERATE_APEX_IMAGE := true
+
 # Audio
 AUDIO_FEATURE_ENABLED_AAC_ADTS_OFFLOAD := true
 AUDIO_FEATURE_ENABLED_AUDIOSPHERE := true
