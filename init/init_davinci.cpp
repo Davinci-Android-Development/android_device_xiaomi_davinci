@@ -34,12 +34,20 @@ void property_override(char const prop[], char const value[])
     else
         __system_property_add(prop, strlen(prop), value, strlen(value));
 }
+
+void property_override_dual(char const system_prop[], char const vendor_prop[],
+    char const value[])
+{
+    property_override(system_prop, value);
+    property_override(vendor_prop, value);
+}
+
 void load_davinciglobal() {
     property_override("ro.product.model", "Mi 9T");
     property_override("ro.build.product", "davinci");
     property_override("ro.product.device", "davinci");
     property_override("ro.build.description", "davinci-user 9 PKQ1.190302.001 V10.3.15.0.PFJEUXM release-keys");
-    property_override("ro.build.fingerprint", "Xiaomi/davinci/davinci:9/PKQ1.190302.001/V10.3.11.0.PFJMIXM:user/release-keys");
+    property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "google/walleye/walleye:8.1.0/OPM1.171019.011/4448085:user/release-keys");
 }
 
 void load_davinciin() {
@@ -47,7 +55,7 @@ void load_davinciin() {
     property_override("ro.build.product", "davinciin");
     property_override("ro.product.device", "davinciin");
     property_override("ro.build.description", "davinciin-user 9 PKQ1.190302.001 V10.3.15.0.PFJINXM release-keys");
-    property_override("ro.build.fingerprint", "Xiaomi/davinci/davinci:9/PKQ1.190302.001/V10.3.11.0.PFJMIXM:user/release-keys");
+    property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "google/walleye/walleye:8.1.0/OPM1.171019.011/4448085:user/release-keys");
 }
 
 void load_davinci() {
@@ -55,7 +63,7 @@ void load_davinci() {
     property_override("ro.build.product", "davinci");
     property_override("ro.product.device", "davinci");
     property_override("ro.build.description", "davinci-user 9 PKQ1.190302.001 V10.3.15.0.PFJCNXM release-keys");
-    property_override("ro.build.fingerprint", "Xiaomi/davinci/davinci:9/PKQ1.190302.001/V10.3.11.0.PFJMIXM:user/release-keys");
+    property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "google/walleye/walleye:8.1.0/OPM1.171019.011/4448085:user/release-keys");
 }
 
 
