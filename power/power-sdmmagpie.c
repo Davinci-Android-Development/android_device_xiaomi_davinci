@@ -51,7 +51,7 @@ const int kMaxLaunchDuration = 5000;      /* ms */
 const int kMaxInteractiveDuration = 5000; /* ms */
 const int kMinInteractiveDuration = 100;  /* ms */
 
-static int process_activity_launch_hint(void* data __unused) {
+static int process_activity_launch_hint(void* data) {
     static int launch_handle = -1;
     static int launch_mode = 0;
 
