@@ -55,5 +55,10 @@
             </intent-filter>
         </activity>
 
+        <service
+            android:name=".popupcamera.PopupCameraService"
+            android:permission="PopupCameraService">
+        </service>
+
     </application>
 </manifest>
