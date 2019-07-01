@@ -26,17 +26,19 @@
 #define PARAM_NIT_FOD 3
 #define PARAM_NIT_NONE 0
 
-#define DISPPARAM_PATH "/sys/class/drm/card0-DSI-1/disp_param"
-#define DISPPARAM_FOD_BACKLIGHT_HBM "0x1D007FF"
-#define DISPPARAM_FOD_BACKLIGHT_RESET "0x2D01000"
+#define FOD_HBM_PATH "/sys/devices/platform/soc/soc:qcom,dsi-display/hbm"
+#define FOD_HBM_ON 1
+#define FOD_HBM_OFF 0
 
 #define FOD_STATUS_PATH "/sys/devices/virtual/touch/tp_dev/fod_status"
 #define FOD_STATUS_ON 1
 #define FOD_STATUS_OFF 0
 
-#define FOD_SENSOR_X 455
-#define FOD_SENSOR_Y 1920
-#define FOD_SENSOR_SIZE 173
+#define FINGERPRINT_ERROR_VENDOR 8
+
+#define FOD_SENSOR_X 445
+#define FOD_SENSOR_Y 1931
+#define FOD_SENSOR_SIZE 190
 
 namespace {
 
@@ -81,13 +83,13 @@ Return<void> FingerprintInscreen::onFinishEnroll() {
 }
 
 Return<void> FingerprintInscreen::onPress() {
-    set(DISPPARAM_PATH, DISPPARAM_FOD_BACKLIGHT_HBM);
+    set(FOD_HBM_PATH, FOD_HBM_ON);
     xiaomiFingerprintService->extCmd(COMMAND_NIT, PARAM_NIT_FOD);
     return Void();
 }
 
 Return<void> FingerprintInscreen::onRelease() {
-    set(DISPPARAM_PATH, DISPPARAM_FOD_BACKLIGHT_RESET);
+    set(FOD_HBM_PATH, FOD_HBM_OFF);
     xiaomiFingerprintService->extCmd(COMMAND_NIT, PARAM_NIT_NONE);
     return Void();
 }
@@ -99,7 +101,7 @@ Return<void> FingerprintInscreen::onShowFODView() {
 
 Return<void> FingerprintInscreen::onHideFODView() {
     set(FOD_STATUS_PATH, FOD_STATUS_OFF);
-    set(DISPPARAM_PATH, DISPPARAM_FOD_BACKLIGHT_RESET);
+    set(FOD_HBM_PATH, FOD_HBM_OFF);
     xiaomiFingerprintService->extCmd(COMMAND_NIT, PARAM_NIT_NONE);
     return Void();
 }
@@ -111,7 +113,7 @@ Return<bool> FingerprintInscreen::handleAcquired(int32_t acquiredInfo, int32_t v
 
 Return<bool> FingerprintInscreen::handleError(int32_t error, int32_t vendorCode) {
     LOG(ERROR) << "error: " << error << ", vendorCode: " << vendorCode << "\n";
-    return false;
+    return error == FINGERPRINT_ERROR_VENDOR && vendorCode == 6;
 }
 
 Return<void> FingerprintInscreen::setLongPressEnabled(bool) {

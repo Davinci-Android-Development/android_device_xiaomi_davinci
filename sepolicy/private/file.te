@@ -3,4 +3,9 @@ type bt_firmware_file, file_type;
 type firmware_file, file_type;
 type persist_file, file_type;
 
-type camera_motor_device, file_type;
+# Device specific type
+type motor_device, dev_type;
+type sysfs_led, sysfs_type, fs_type;
+type sysfs_graphics, sysfs_type, fs_type;
+type sysfs_tp_fodhbm, sysfs_type, fs_type;
+type sysfs_tp_fodstatus, sysfs_type, fs_type;

@@ -1,8 +1,16 @@
 type hal_fod_davinci, coredomain, domain;
 hal_server_domain(hal_fod_davinci, hal_lineage_fod)
 
-type hal_fod_davinci_exec, system_file_type, exec_type, file_type;
-init_daemon_domain(hal_fod_davinci)
-
 # Allow access to the HALs
 hal_client_domain(hal_fod_davinci, hal_fingerprint)
+
+type hal_fod_davinci_exec, exec_type, system_file_type, file_type;
+init_daemon_domain(hal_fod_davinci)
+
+# Allow binder communication with hal_fingerprint
+binder_call(hal_fod_davinci, hal_fingerprint)
+
+allow hal_fod_davinci { sysfs_tp_fodhbm sysfs_tp_fodstatus }:file rw_file_perms;
+
+set_prop(hal_fod_davinci, sysfs_tp_fodhbm)
+set_prop(hal_fod_davinci, sysfs_tp_fodstatus)
