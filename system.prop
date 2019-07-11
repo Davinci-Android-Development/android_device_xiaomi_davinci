@@ -65,9 +65,6 @@ persist.sys.cust.lte_config=true
 persist.radio.VT_ENABLE=1
 persist.radio.volte.dan_support=true
 
-# SSR
-persist.vendor.ssr.restart_level=ALL_ENABLE
-
 # WiFi
 persist.debug.wfd.enable=1
 persist.sys.wfd.nohdcp=1
