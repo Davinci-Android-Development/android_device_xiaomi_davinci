@@ -131,6 +131,10 @@ PRODUCT_PACKAGES += \
     rcs_service_api \
     rcs_service_api.xml
 
+# Power
+PRODUCT_PACKAGES += \
+    android.hardware.power@1.2-service
+
 # Telephony
 PRODUCT_PACKAGES += \
     ims-ext-common \

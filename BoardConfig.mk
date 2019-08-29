@@ -156,6 +156,9 @@ BOARD_PLAT_PUBLIC_SEPOLICY_DIR += \
     device/qcom/sepolicy/generic/public \
     device/qcom/sepolicy/qva/public
 
+# Power
+TARGET_USES_INTERACTION_BOOST := true
+
 # Treble
 BOARD_VNDK_VERSION := current
 PRODUCT_EXTRA_VNDK_VERSIONS := 28
