@@ -1,7 +1,7 @@
 # Audio
-/system/etc/audio_policy_configuration.xml    u:object_r:vendor_configs_file:s0
-/system/lib64/soundfx/libvolumelistener\.so   u:object_r:vendor_file:s0
-/system/lib/soundfx/libvolumelistener\.so     u:object_r:vendor_file:s0
+/system/etc/audio_policy_configuration.xml    u:object_r:system_configs_file:s0
+/system/lib64/soundfx/libvolumelistener\.so   u:object_r:system_file:s0
+/system/lib/soundfx/libvolumelistener\.so     u:object_r:system_file:s0
 
 # Camera Motor
 /dev/drv8846_dev         u:object_r:camera_motor_device:s0
@@ -14,4 +14,4 @@
 
 # HALs
 /system/bin/hw/lineage\.biometrics\.fingerprint\.inscreen@1.0-service\.xiaomi_davinci    u:object_r:hal_fod_davinci_exec:s0
-/system/bin/hw/vendor\.lineage\.camera\.motor@1.0-service\.xiaomi_davinci u:object_r:hal_lineage_camera_motor_xiaomi_davinci_exec:s0
+/system/bin/hw/vendor\.lineage\.camera\.motor@1.0-service\.xiaomi_davinci                u:object_r:hal_lineage_camera_motor_xiaomi_davinci_exec:s0
