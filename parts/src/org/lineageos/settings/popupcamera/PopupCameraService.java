@@ -33,7 +33,7 @@ import android.util.Log;
 
 import java.util.List;
 
-import org.lineageos.internal.util.FileUtils;
+import com.android.internal.util.custom.FileUtils;
 import vendor.xiaomi.hardware.motor.V1_0.IMotor;
 
 public class PopupCameraService extends Service {
@@ -89,8 +89,8 @@ public class PopupCameraService extends Service {
         filter.addAction("android.intent.action.ACTION_SHUTDOWN");
         filter.addAction("android.intent.action.SCREEN_ON");
         filter.addAction("android.intent.action.SCREEN_OFF");
-        filter.addAction("lineageos.intent.action.CAMERA_STATUS_CHANGED");
-        filter.addAction("lineageos.intent.action.ACTIVE_PACKAGE_CHANGED");
+        filter.addAction("android.intent.action.CAMERA_STATUS_CHANGED");
+        filter.addAction("android.intent.action.ACTIVE_PACKAGE_CHANGED");
         this.registerReceiver(mIntentReceiver, filter);
     }
 
@@ -98,8 +98,8 @@ public class PopupCameraService extends Service {
         @Override
         public void onReceive(Context context, Intent intent) {
             final String action = intent.getAction();
-            if (lineageos.content.Intent.ACTION_CAMERA_STATUS_CHANGED.equals(action)) {
-               mCameraState = intent.getExtras().getString(lineageos.content.Intent.EXTRA_CAMERA_STATE);
+            if (android.content.Intent.ACTION_CAMERA_STATUS_CHANGED.equals(action)) {
+               mCameraState = intent.getExtras().getString(android.content.Intent.EXTRA_CAMERA_STATE);
                updateMotor(mCameraState);
             }
         }
