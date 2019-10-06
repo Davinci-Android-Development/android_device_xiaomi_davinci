@@ -2,6 +2,10 @@
 #support unlimited color temperature adjust
 ro.colorpick_adjust=true
 
+# System property for cabl
+ro.qualcomm.cabl=2
+ro.vendor.display.cabl=2
+
 # System property for AD
 ro.vendor.display.ad=1
 ro.vendor.display.ad.sdr_calib_data=/vendor/etc/sdr_config.cfg
@@ -61,10 +65,11 @@ persist.vendor.ssr.restart_level=ALL_ENABLE
 persist.vendor.ssr.enable_ramdumps=0
 
 #set ims related prop
-# MIUI DEL: START
-#persist.dbg.volte_avail_ovr=1
-#persist.dbg.vt_avail_ovr=1
-# END
+persist.dbg.ims_volte_enable=1
+persist.radio.videopause.mode=1
+persist.data.iwlan.enable=true
+persist.dbg.volte_avail_ovr=1
+persist.dbg.vt_avail_ovr=1
 persist.radio.VT_HYBRID_ENABLE=1
 
 #iwaln vowifi corresponding
@@ -246,7 +251,7 @@ config.disable_rtt=true
 persist.radio.atfwd.start=false
 
 #Increase cached app limit
-#ro.vendor.qti.sys.fw.bg_apps_limit=60
+ro.vendor.qti.sys.fw.bg_apps_limit=60
 
 #Enable ZRAM
 ro.vendor.qti.config.zram=false
