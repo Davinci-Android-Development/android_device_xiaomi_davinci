@@ -98,3 +98,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Subsystem ramdump
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.ssr.restart_level=ALL_ENABLE
+
+# Havoc
+PRODUCT_PROPERTY_OVERRIDES += \
+ro.havoc.maintainer=MountaserHalak
