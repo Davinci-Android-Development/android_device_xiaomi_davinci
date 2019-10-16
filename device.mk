@@ -85,7 +85,7 @@ PRODUCT_PACKAGES += \
 # Input
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
-    $(LOCAL_PATH)/keylayout/sm8150-tavil-snd-card_Button_Jack.kl:system/usr/keylayout/sm8150-tavil-snd-card_Button_Jack.kl
+    $(LOCAL_PATH)/keylayout/sm6150-tavil-snd-card_Button_Jack.kl:system/usr/keylayout/sm6150-tavil-snd-card_Button_Jack.kl
 
 # Livedisplay
 PRODUCT_PACKAGES += \
@@ -113,7 +113,7 @@ PRODUCT_PACKAGES += \
 
 # Power
 #PRODUCT_PACKAGES += \
-    android.hardware.power@1.2-service
+    android.hardware.power@1.0-service
 
 # Telephony
 PRODUCT_PACKAGES += \
