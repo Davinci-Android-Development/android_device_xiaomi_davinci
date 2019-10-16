@@ -7,7 +7,7 @@
 
 set -e
 
-DEVICE=raphael
+DEVICE=davinci
 VENDOR=xiaomi
 
 INITIAL_COPYRIGHT_YEAR=2019

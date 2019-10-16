@@ -6,7 +6,7 @@
 
 BOARD_VENDOR := xiaomi
 
-DEVICE_PATH := device/xiaomi/raphael
+DEVICE_PATH := device/xiaomi/davinci
 
 # Architecture
 TARGET_ARCH := arm64
@@ -25,7 +25,7 @@ TARGET_USES_64_BIT_BINDER := true
 PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := raphael,raphaelin
+TARGET_OTA_ASSERT_DEVICE := davinci,davinciin
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := msmnile
@@ -44,10 +44,10 @@ BOARD_RAMDISK_OFFSET := 0x01000000
 TARGET_KERNEL_ARCH := arm64
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
 ifeq ($(TARGET_PREBUILT_KERNEL),)
-  TARGET_KERNEL_CONFIG := raphael_user_defconfig
+  TARGET_KERNEL_CONFIG := davinci_user_defconfig
   TARGET_KERNEL_CLANG_COMPILE := true
   TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
-  TARGET_KERNEL_SOURCE := kernel/xiaomi/raphael
+  TARGET_KERNEL_SOURCE := kernel/xiaomi/davinci
 endif
 
 # Platform
@@ -96,9 +96,9 @@ DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := $(DEVICE_PATH)/framework_compatibi
 DEVICE_FRAMEWORK_MANIFEST_FILE := $(DEVICE_PATH)/framework_manifest.xml
 
 # Init
-TARGET_INIT_VENDOR_LIB := libinit_raphael
+TARGET_INIT_VENDOR_LIB := libinit_davinci
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc/
-TARGET_RECOVERY_DEVICE_MODULES := libinit_raphael
+TARGET_RECOVERY_DEVICE_MODULES := libinit_davinci
 
 # NFC
 TARGET_USES_NQ_NFC := true
@@ -156,4 +156,4 @@ BOARD_AVB_ENABLE := true
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flag 2
 
 # Inherit from the proprietary version
--include vendor/xiaomi/raphael/BoardConfigVendor.mk
+-include vendor/xiaomi/davinci/BoardConfigVendor.mk
