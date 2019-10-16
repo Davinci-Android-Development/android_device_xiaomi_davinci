@@ -35,26 +35,26 @@ void property_override(char const prop[], char const value[])
         __system_property_add(prop, strlen(prop), value, strlen(value));
 }
 void load_davinciglobal() {
-    property_override("ro.product.model", "Mi 9T Pro");
+    property_override("ro.product.model", "Mi 9T");
     property_override("ro.build.product", "davinci");
     property_override("ro.product.device", "davinci");
-    property_override("ro.build.description", "davinci-user 9 PKQ1.181121.001 V10.3.1.0.PFKEUXM release-keys");
+    property_override("ro.build.description", "davinci-user 9 PKQ1.190302.001 V10.3.15.0.PFJEUXM release-keys");
     property_override("ro.build.fingerprint", "Xiaomi/beryllium/beryllium:9/PKQ1.180729.001/V10.2.3.0.PEJMIXM:user/release-keys");
 }
 
 void load_davinciin() {
-    property_override("ro.product.model", "Redmi K20 Pro");
+    property_override("ro.product.model", "Redmi K20");
     property_override("ro.build.product", "davinciin");
     property_override("ro.product.device", "davinciin");
-    property_override("ro.build.description", "davinciin-user 9 PKQ1.181121.001 V10.3.3.0.PFKINXM release-keys");
+    property_override("ro.build.description", "davinciin-user 9 PKQ1.190302.001 V10.3.15.0.PFJINXM release-keys");
     property_override("ro.build.fingerprint", "Xiaomi/beryllium/beryllium:9/PKQ1.180729.001/V10.2.3.0.PEJMIXM:user/release-keys");
 }
 
 void load_davinci() {
-    property_override("ro.product.model", "Redmi K20 Pro");
+    property_override("ro.product.model", "Redmi K20");
     property_override("ro.build.product", "davinci");
     property_override("ro.product.device", "davinci");
-    property_override("ro.build.description", "davinci-user 9 PKQ1.181121.001 V10.3.12.0.PFKCNXM release-keys");
+    property_override("ro.build.description", "davinci-user 9 PKQ1.190302.001 V10.3.15.0.PFJCNXM release-keys");
     property_override("ro.build.fingerprint", "Xiaomi/beryllium/beryllium:9/PKQ1.180729.001/V10.2.3.0.PEJMIXM:user/release-keys");
 }
 
