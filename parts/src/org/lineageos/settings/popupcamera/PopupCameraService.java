@@ -89,8 +89,8 @@ public class PopupCameraService extends Service {
         filter.addAction("android.intent.action.ACTION_SHUTDOWN");
         filter.addAction("android.intent.action.SCREEN_ON");
         filter.addAction("android.intent.action.SCREEN_OFF");
-        filter.addAction("android.intent.action.CAMERA_STATUS_CHANGED");
-        filter.addAction("android.intent.action.ACTIVE_PACKAGE_CHANGED");
+        filter.addAction("com.android.internal.custom.app.Intent.CAMERA_STATUS_CHANGED");
+        filter.addAction("com.android.internal.custom.app.Intent.ACTIVE_PACKAGE_CHANGED");
         this.registerReceiver(mIntentReceiver, filter);
     }
 
@@ -98,8 +98,8 @@ public class PopupCameraService extends Service {
         @Override
         public void onReceive(Context context, Intent intent) {
             final String action = intent.getAction();
-            if (android.content.Intent.ACTION_CAMERA_STATUS_CHANGED.equals(action)) {
-               mCameraState = intent.getExtras().getString(android.content.Intent.EXTRA_CAMERA_STATE);
+            if (com.android.internal.custom.app.Intent.ACTION_CAMERA_STATUS_CHANGED.equals(action)) {
+               mCameraState = intent.getExtras().getString(com.android.internal.custom.app.Intent.EXTRA_CAMERA_STATE);
                updateMotor(mCameraState);
             }
         }
