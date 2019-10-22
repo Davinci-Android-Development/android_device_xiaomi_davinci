@@ -115,8 +115,8 @@ PRODUCT_PACKAGES += \
     Tag
 
 # Power
-#PRODUCT_PACKAGES += \
-    android.hardware.power@1.0-service
+PRODUCT_PACKAGES += \
+    android.hardware.power@1.2-service
 
 # Telephony
 PRODUCT_PACKAGES += \
