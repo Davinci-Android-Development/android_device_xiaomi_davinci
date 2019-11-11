@@ -264,7 +264,7 @@ vendor.perf.workloadclassifier.enable=true
 vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.qualcomm.saltproject2,com.miui.cit,com.android.camera
 
 #enable IZat OptInApp overlay
-persist.vendor.overlay.izat.optin=rro
+#persist.vendor.overlay.izat.optin=rro
 
 #Property to enable Mag filter
 persist.vendor.sensors.enable.mag_filter=true
