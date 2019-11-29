@@ -81,7 +81,7 @@ Return<void> CameraMotor::onConnect(const hidl_string& cameraId) {
         std::this_thread::sleep_for(std::chrono::milliseconds(time_ms));
     }
 
-    if (cameraId == CAMERA_ID_FRONT && !(is_up)) {
+    if (cameraId == CAMERA_ID_FRONT && (is_up == 0)) {
         LOG(INFO) << "Camera is uprising.";
         uint8_t arg = UP;
         ioctl(motor_fd_.get(), MOTOR_IOC_SET_AUTORUN, &arg);
@@ -109,7 +109,7 @@ Return<void> CameraMotor::onDisconnect(const hidl_string& cameraId) {
         std::this_thread::sleep_for(std::chrono::milliseconds(time_ms));
     }
 
-    if (cameraId == CAMERA_ID_FRONT && is_up) {
+    if (cameraId == CAMERA_ID_FRONT && (is_up == 1)) {
         LOG(INFO) << "Camera is descending";
         uint8_t arg = DOWN;
         ioctl(motor_fd_.get(), MOTOR_IOC_SET_AUTORUN, &arg);
