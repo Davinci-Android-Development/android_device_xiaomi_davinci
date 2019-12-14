@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013, 2018-2019 The Linux Foundation. All rights reserved.
+ * Copyright (c) 2013, 2018 The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -26,13 +26,6 @@
  * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
  * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-#ifndef __POWER_COMMON_H__
-#define __POWER_COMMON_H__
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 #define NODE_MAX (64)
 
 #define SCALING_GOVERNOR_PATH "/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor"
@@ -46,13 +39,8 @@ extern "C" {
 #define MSMDCVS_GOVERNOR "msm-dcvs"
 #define SCHEDUTIL_GOVERNOR "schedutil"
 
-#define INPUT_EVENT_WAKUP_MODE_OFF 4
-#define INPUT_EVENT_WAKUP_MODE_ON 5
-
 #define HINT_HANDLED (0)
 #define HINT_NONE (-1)
-
-#include <hardware/power.h>
 
 enum CPU_GOV_CHECK {
     CPU0 = 0,
@@ -60,13 +48,3 @@ enum CPU_GOV_CHECK {
     CPU2 = 2,
     CPU3 = 3
 };
-
-void power_init(void);
-void power_hint(power_hint_t hint, void *data);
-void set_interactive(int on);
-
-#ifdef __cplusplus
-}
-#endif
-
-#endif //__POWER_COMMON_H___
