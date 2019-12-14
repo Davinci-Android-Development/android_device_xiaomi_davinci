@@ -1,4 +1,4 @@
 hidl_package_root {	
     name: "vendor.xiaomi",	
-    path: "device/xiaomi/raphael/interfaces",	
+    path: "device/xiaomi/davinci/interfaces",	
 }

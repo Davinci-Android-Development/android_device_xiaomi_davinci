@@ -13,5 +13,5 @@
 /persist(/.*)?           u:object_r:persist_file:s0
 
 # HALs
-/system/bin/hw/lineage\.biometrics\.fingerprint\.inscreen@1.0-service\.xiaomi_raphael    u:object_r:hal_fod_raphael_exec:s0
-/system/bin/hw/vendor\.lineage\.camera\.motor@1.0-service\.xiaomi_raphael u:object_r:hal_lineage_camera_motor_xiaomi_raphael_exec:s0
+/system/bin/hw/lineage\.biometrics\.fingerprint\.inscreen@1.0-service\.xiaomi_davinci    u:object_r:hal_fod_davinci_exec:s0
+/system/bin/hw/vendor\.lineage\.camera\.motor@1.0-service\.xiaomi_davinci u:object_r:hal_lineage_camera_motor_xiaomi_davinci_exec:s0

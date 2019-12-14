@@ -6,7 +6,7 @@
 
 BOARD_VENDOR := xiaomi
 
-DEVICE_PATH := device/xiaomi/raphael
+DEVICE_PATH := device/xiaomi/davinci
 
 # Architecture
 TARGET_ARCH := arm64
@@ -25,10 +25,10 @@ TARGET_USES_64_BIT_BINDER := true
 PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := raphael, raphaelin
+TARGET_OTA_ASSERT_DEVICE := davinci, davinciin
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := sm8150
+TARGET_BOOTLOADER_BOARD_NAME := sm6150
 TARGET_NO_BOOTLOADER := true
 
 # Kernel
@@ -45,13 +45,13 @@ BOARD_RAMDISK_OFFSET := 0x01000000
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_CLANG_COMPILE := true
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
-TARGET_KERNEL_SOURCE := kernel/xiaomi/sm8150
-TARGET_KERNEL_CONFIG := raphael_defconfig
+TARGET_KERNEL_SOURCE := kernel/xiaomi/davinci
+TARGET_KERNEL_CONFIG := vendor/lineage_davinci_defconfig
 NEED_KERNEL_MODULE_SYSTEM := true
 
 # Platform
-#TARGET_BOARD_PLATFORM := sm8150
-TARGET_BOARD_PLATFORM_GPU := qcom-adreno640
+#TARGET_BOARD_PLATFORM := sm6150
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno618
 
 # Audio
 AUDIO_FEATURE_ENABLED_AAC_ADTS_OFFLOAD := true
@@ -150,4 +150,4 @@ BOARD_AVB_ENABLE := true
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flag 2
 
 # Inherit from the proprietary version
--include vendor/xiaomi/raphael/BoardConfigVendor.mk
+-include vendor/xiaomi/davinci/BoardConfigVendor.mk

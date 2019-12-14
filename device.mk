@@ -10,7 +10,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 
 # Get non-open-source specific aspects
-$(call inherit-product-if-exists, vendor/xiaomi/raphael/raphael-vendor.mk)
+$(call inherit-product-if-exists, vendor/xiaomi/davinci/davinci-vendor.mk)
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 2340
@@ -18,8 +18,7 @@ TARGET_SCREEN_WIDTH := 1080
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-lineage
+    $(LOCAL_PATH)/overlay
 
 # AID/fs configs
 PRODUCT_PACKAGES += \
@@ -39,7 +38,7 @@ PRODUCT_PACKAGES += \
 
 # Camera Motor
 PRODUCT_PACKAGES += \
-    vendor.lineage.camera.motor@1.0-service.xiaomi_raphael
+    vendor.lineage.camera.motor@1.0-service.xiaomi_davinci
 
 # Common init scripts
 PRODUCT_PACKAGES += \
@@ -52,7 +51,7 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    lineage.biometrics.fingerprint.inscreen@1.0-service.xiaomi_raphael
+    lineage.biometrics.fingerprint.inscreen@1.0-service.xiaomi_davinci
 
 # HIDL
 PRODUCT_PACKAGES += \
@@ -80,7 +79,7 @@ PRODUCT_COPY_FILES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.xiaomi_raphael
+    android.hardware.light@2.0-service.xiaomi_davinci
 
 # Media
 PRODUCT_COPY_FILES += \
