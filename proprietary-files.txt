@@ -90,7 +90,7 @@ lib/vendor.qti.hardware.radio.ims@1.0.so
 lib/vendor.qti.hardware.radio.ims@1.1.so
 lib/vendor.qti.hardware.radio.ims@1.2.so
 lib/vendor.qti.hardware.radio.ims@1.3.so
--priv-app/ims/ims.apk
+-priv-app/ims/ims.apk|70d0bdc659e3e85d4e817d9c6f293225cbcab820
 
 # Perf
 lib64/vendor.qti.hardware.iop@1.0.so
