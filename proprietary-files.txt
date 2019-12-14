@@ -2,6 +2,9 @@
 vendor/lib64/soundfx/libvolumelistener.so:product/vendor_overlay/29/lib64/soundfx/libvolumelistener.so|5e47ee679a500e3452160e390a42f210b415a039
 vendor/lib/soundfx/libvolumelistener.so:product/vendor_overlay/29/lib/soundfx/libvolumelistener.so|74bd1983958010a74b66d46018b033498202bf19
 
+# Camera - from davinci - QKQ1.190825.002-9.9.26
+vendor/lib64/hw/camera.qcom.so:product/vendor_overlay/29/lib64/hw/camera.qcom.so|d418178613ff5c7e67dc402aa5d36c95c8d62e38
+
 # CNE
 etc/permissions/cneapiclient.xml
 etc/permissions/com.quicinc.cne.xml
