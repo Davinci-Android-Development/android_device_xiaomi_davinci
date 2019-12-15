@@ -2,6 +2,9 @@
 vendor/lib64/soundfx/libvolumelistener.so:product/vendor_overlay/29/lib64/soundfx/libvolumelistener.so|5e47ee679a500e3452160e390a42f210b415a039
 vendor/lib/soundfx/libvolumelistener.so:product/vendor_overlay/29/lib/soundfx/libvolumelistener.so|74bd1983958010a74b66d46018b033498202bf19
 
+# Alarm
+-product/app/PowerOffAlarm/PowerOffAlarm.apk
+
 # Bluetooth (aptX)
 product/lib64/libaptX_encoder.so|df1c89d7af1bb35808d5fe3496b04ba066c10cbc
 product/lib64/libaptXHD_encoder.so|e13fa70c97caaa24d061678bdee608eb8850a69e
@@ -51,9 +54,6 @@ product/lib64/libdpmfdmgr.so
 product/lib64/libdpmframework.so
 product/lib64/libdpmtcm.so
 -product/priv-app/dpmserviceapp/dpmserviceapp.apk
-
-# Display postprocessing
-product/lib64/vendor.display.color@1.0.so
 
 # FM
 lib64/fm_helium.so
@@ -116,11 +116,17 @@ product/lib64/vendor.qti.imsrtpservice@2.1.so
 -product/priv-app/HotwordEnrollmentXGoogleHEXAGON/HotwordEnrollmentXGoogleHEXAGON.apk;PRESIGNED|78d1ef42447dcae6c506ee35a6bea0dd7612af7c
 -product/priv-app/HotwordEnrollmentOKGoogleHEXAGON/HotwordEnrollmentOKGoogleHEXAGON.apk;PRESIGNED|0741b5ada5d9da2227b4ff0bc77c3be7d6eb430b
 
+# Modules
+vendor/lib/modules/exfat.ko:product/vendor_overlay/29/lib/modules/exfat.ko|29044a8348e29f81ddbb89d22f70dccf4218e21e
+
 # Perf
 product/lib64/vendor.qti.hardware.iop@2.0.so
 product/lib64/vendor.qti.hardware.perf@2.0.so
 product/lib/vendor.qti.hardware.iop@2.0.so
 product/lib/vendor.qti.hardware.perf@2.0.so
+
+# Power-off charging daemon
+-bin/charger:bin/chargeonlymode
 
 # RIL
 etc/permissions/privapp-permissions-qti.xml
@@ -139,39 +145,50 @@ product/framework/qcrilhook.jar
 # Telephony (qti-telephony-common) - from DRG - QKQ1.190828.002
 product/framework/qti-telephony-common.jar|74adbf98e89531ac385ab5c4cea3c2549a0d24b0
 
-# SDM
-product/lib/libsdm-disp-apis.qti.so
-product/lib64/libsdm-disp-apis.qti.so
-
 # Soter
--vendor/app/SoterService/SoterService.apk:product/app/SoterService/SoterService.apk
+-app/SoterService/SoterService.apk|401f49c5a47b8679b4844ab6d74fac462920f210
 
 # WiFi Display
 bin/wfdservice
 etc/init/wfdservice.rc
 etc/wfdconfigsink.xml
 -framework/WfdCommon.jar
-lib/com.qualcomm.qti.wifidisplayhal@1.0.so
 lib64/libFileMux.so
-lib64/libmmparser_lite.so
 lib64/libmmosal.so
+lib64/libmmparser_lite.so
+lib64/libmmrtpdecoder.so
+lib64/libmmrtpencoder.so
 lib64/libwfdclient.so
+lib64/libwfdcommonutils.so
+lib64/libwfdconfigutils.so
+lib64/libwfdmminterface.so
+lib64/libwfdmmsink.so
 lib64/libwfdnative.so
+lib64/libwfdrtsp.so
+lib64/libwfdsinksm.so
+lib64/libwfdsm.so
+lib64/libwfduibcinterface.so
+lib64/libwfduibcsink.so
+lib64/libwfduibcsinkinterface.so
+lib64/libwfduibcsrc.so
+lib64/libwfduibcsrcinterface.so
+lib/com.qualcomm.qti.wifidisplayhal@1.0.so
 lib/libFileMux.so
-lib/libmmparser_lite.so
 lib/libmmosal.so
+lib/libmmparser_lite.so
 lib/libmmrtpdecoder.so
 lib/libmmrtpencoder.so
-lib/libOmxMux.so
 lib/libwfdaac.so
 lib/libwfdavenhancements.so
+lib/libwfdclient.so
 lib/libwfdcommonutils.so
 lib/libwfdconfigutils.so
-lib/libwfdclient.so
 lib/libwfdmminterface.so
 lib/libwfdmmsink.so
+lib/libwfdmmsrc_system.so
 lib/libwfdrtsp.so
 lib/libwfdservice.so
+lib/libwfdsinksm.so
 lib/libwfdsm.so
 lib/libwfduibcinterface.so
 lib/libwfduibcsink.so
@@ -179,3 +196,5 @@ lib/libwfduibcsinkinterface.so
 lib/libwfduibcsrc.so
 lib/libwfduibcsrcinterface.so
 -priv-app/WfdService/WfdService.apk
+product/lib/vendor.qti.hardware.wifidisplaysession@1.0.so
+product/lib64/vendor.qti.hardware.wifidisplaysession@1.0.so
