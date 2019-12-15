@@ -12,7 +12,7 @@ ro.vendor.display.sensortype=2
 ro.display.type=oled
 
 # displayfeature use poll to monitor backlight brightness
-ro.vendor.bl.poll=true
+#ro.vendor.bl.poll=true
 
 #support night mode 2.0
 ro.vendor.eyecare.threshold=11
@@ -308,7 +308,7 @@ persist.vendor.radio.enable_temp_dds=true
 persist.quick.charge.detect=1
 
 #system property for displayfeature hidl
-sys.displayfeature_hidl=true
+#sys.displayfeature_hidl=true
 
 #system property for HBM mode
 vendor.hbm.enable=true
