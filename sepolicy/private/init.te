@@ -11,4 +11,5 @@ allow init rootfs:file mounton;
 allow init {
     sysfs_graphics
     sysfs_tp_fodstatus
+    sysfs_tp_fodhbm
 }:file { open read setattr };

@@ -1,1 +1,2 @@
-vendor.display.color::IDisplayColor      u:object_r:hal_display_color_hwservice:s0
+vendor.display.color::IDisplayColor                                u:object_r:hal_display_color_hwservice:s0
+vendor.xiaomi.hardware.fingerprintextension::IXiaomiFingerprint    u:object_r:hal_fingerprint_hwservice_xiaomi:s0
