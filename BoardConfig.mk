@@ -28,7 +28,7 @@ TARGET_2ND_CPU_VARIANT_RUNTIME := kryo385
 TARGET_USES_64_BIT_BINDER := true
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := davinci, davinciin
+TARGET_OTA_ASSERT_DEVICE := davinci,davinciin
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := sm6150

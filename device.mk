@@ -46,10 +46,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     Snap
 
-# Camera Motor
-PRODUCT_PACKAGES += \
-    vendor.lineage.camera.motor@1.0-service.xiaomi_davinci
-
 # Common init scripts
 PRODUCT_PACKAGES += \
     init.qcom.rc \
