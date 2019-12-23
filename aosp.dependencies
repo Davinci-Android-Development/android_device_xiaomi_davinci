@@ -1,5 +1,16 @@
 [
   {
+    "repository": "davinci-dev/android_kernel_xiaomi_davinci",
+    "target_path": "kernel/xiaomi/davinci",
+    "branch": "lineage-17.0",
+    "remote": "github"
+  },
+  {
+    "repository": "vendor_xiaomi_davinci",
+    "target_path": "vendor/xiaomi/davinci",
+    "branch": "ten"
+  },
+  {
     "repository": "LineageOS/android_packages_resources_devicesettings",
     "target_path": "packages/resources/devicesettings",
     "branch": "lineage-17.0",
