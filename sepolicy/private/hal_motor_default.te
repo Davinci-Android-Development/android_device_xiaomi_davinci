@@ -1,0 +1,7 @@
+type hal_motor_default, domain;
+
+type hal_motor_default_exec, exec_type, vendor_file_type, file_type;
+
+# Allow binder communication with system_app
+binder_call(hal_motor_default, system_app)
+
