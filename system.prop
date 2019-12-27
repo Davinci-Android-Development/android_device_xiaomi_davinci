@@ -85,6 +85,7 @@ persist.radio.videopause.mode=1
 persist.data.iwlan.enable=true
 persist.dbg.volte_avail_ovr=1
 persist.dbg.vt_avail_ovr=1
+persist.dbg.wfc_avail_ovr=1
 persist.radio.VT_HYBRID_ENABLE=1
 
 # iwaln vowifi corresponding
