@@ -17,3 +17,6 @@ service vendor.imsdatadaemon /vendor/bin/imsdatadaemon
     group radio wifi inet vendor_qti_diag log
     disabled
 
+on property:sys.boot_completed=1
+    write /sys/class/kgsl/kgsl-3d0/devfreq/min_freq 267000000
+
