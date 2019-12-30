@@ -134,7 +134,7 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.2-service
+    android.hardware.power@1.2-service.davinci
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
