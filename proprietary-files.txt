@@ -60,8 +60,8 @@ product/lib64/libdpmtcm.so
 -product/priv-app/dpmserviceapp/dpmserviceapp.apk
 
 # DRM - Widevine
-vendor/lib/liboemcrypto.so:product/vendor_overlay/29/lib/liboemcrypto.so|6f12eff0ea54c8d3dcbbe90396e2494528706cf1
-vendor/lib64/liboemcrypto.so:product/vendor_overlay/29/lib64/liboemcrypto.so|252479cc9952ffdb3fe77e044b7a6cc91e48e488
+vendor/lib/liboemcrypto.so:product/vendor_overlay/29/lib/liboemcrypto.so|b349d1d049709bbdff15a133698264dc8c01db14
+vendor/lib64/liboemcrypto.so:product/vendor_overlay/29/lib64/liboemcrypto.so|2cee717b25559030a61709e826b4a5dae6043c20
 
 # FM
 lib64/fm_helium.so
