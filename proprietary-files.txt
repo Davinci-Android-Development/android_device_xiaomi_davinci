@@ -38,6 +38,10 @@ product/lib64/vendor.qti.hardware.data.dynamicdds@1.0.so
 product/lib64/vendor.qti.hardware.data.iwlan@1.0.so
 product/lib64/vendor.qti.hardware.data.qmi@1.0.so
 
+# Display postprocessing
+product/lib64/vendor.display.color@1.0.so
+vendor/bin/hw/vendor.display.color@1.0-service:product/vendor_overlay/29/bin/hw/vendor.display.color@1.0-service|8646c74c5b19e6d5086d7a4f83e0757610d18f3f
+
 # DPM
 framework/tcmclient.jar
 lib64/libdiag_system.so
