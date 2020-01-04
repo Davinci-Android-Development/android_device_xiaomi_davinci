@@ -116,18 +116,18 @@ product/lib/vendor.qti.hardware.iop@2.0.so
 product/lib/vendor.qti.hardware.perf@2.0.so
 
 # Popup camera sound effects
-product/media/audio/ui/popup_cangmen_down.ogg|573b107889ccf639db5455af21129ce1fee93bc5
-product/media/audio/ui/popup_cangmen_up.ogg|f152dea254b4eaae403b791c49c60c05ccf12ea7
-product/media/audio/ui/popup_chilun_down.ogg|e200a3de45abbf2057ca0c6a735b6a6a78ec1b1c
-product/media/audio/ui/popup_chilun_up.ogg|908bd714b58648c8861c0e56ca7c6f0db84d4e2b
-product/media/audio/ui/popup_jijia_down.ogg|680b41897aaa47972630012e0c68396bf4cbe9c7
-product/media/audio/ui/popup_jijia_up.ogg|bd71c2f07f439a2afc9e9b435ef8d1a7a28a4fc1
-product/media/audio/ui/popup_mofa_down.ogg|ebfec5126f64a5eea69aad43af169de5eed398ae
-product/media/audio/ui/popup_mofa_up.ogg|95ef57769ca5e4a3264e4adf7c9958d55ff1a32c
-product/media/audio/ui/popup_muqin_down.ogg|3ecf82ae3d4ec853e0832901d2163c252ad62e07
-product/media/audio/ui/popup_muqin_up.ogg|047ae904c2932bc6112cd7ef4458f4cad1972181
-product/media/audio/ui/popup_yingyan_down.ogg|de1623b20f311322dc79a3d152ca30318e1ed0db
-product/media/audio/ui/popup_yingyan_up.ogg|0c3a716ba49dd682a6d58cca04eece0f81ca6834
+media/audio/ui/popup_cangmen_down.ogg:product/media/audio/ui/popup_cangmen_down.ogg
+media/audio/ui/popup_cangmen_up.ogg:product/media/audio/ui/popup_cangmen_up.ogg
+media/audio/ui/popup_chilun_down.ogg:product/media/audio/ui/popup_chilun_down.ogg
+media/audio/ui/popup_chilun_up.ogg:product/media/audio/ui/popup_chilun_up.ogg
+media/audio/ui/popup_jijia_down.ogg:product/media/audio/ui/popup_jijia_down.ogg
+media/audio/ui/popup_jijia_up.ogg:product/media/audio/ui/popup_jijia_up.ogg
+media/audio/ui/popup_mofa_down.ogg:product/media/audio/ui/popup_mofa_down.ogg
+media/audio/ui/popup_mofa_up.ogg:product/media/audio/ui/popup_mofa_up.ogg
+media/audio/ui/popup_muqin_down.ogg:product/media/audio/ui/popup_muqin_down.ogg
+media/audio/ui/popup_muqin_up.ogg:product/media/audio/ui/popup_muqin_up.ogg
+media/audio/ui/popup_yingyan_down.ogg:product/media/audio/ui/popup_yingyan_down.ogg
+media/audio/ui/popup_yingyan_up.ogg:product/media/audio/ui/popup_yingyan_up.ogg
 
 # Power-off charging daemon
 -bin/charger:bin/chargeonlymode
@@ -148,6 +148,9 @@ product/framework/qcrilhook.jar
 
 # Telephony (qti-telephony-common) - from DRG - QKQ1.190828.002
 product/framework/qti-telephony-common.jar|74adbf98e89531ac385ab5c4cea3c2549a0d24b0
+
+# SDM
+product/lib64/libsdm-disp-apis.qti.so
 
 # Soter
 -app/SoterService/SoterService.apk|401f49c5a47b8679b4844ab6d74fac462920f210
