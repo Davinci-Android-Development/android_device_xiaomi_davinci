@@ -1,6 +1,15 @@
 import /system/etc/init/init.power.rc
 import /system/etc/init/init.safailnet.rc
 
+on init
+    chown system system /dev/input/event2
+    chmod 0666 /dev/input/event2
+
+    # Mask up legacy PowerHAL
+    mount none /dev/null /vendor/bin/hw/android.hardware.power@1.2-service
+    mount none /dev/null /vendor/etc/init/android.hardware.power@1.2-service.rc
+    mount none /dev/null /vendor/etc/powerhint.xml
+
 on boot
     # Thermal Profile
     write /sys/class/thermal/thermal_message/sconfig 0
@@ -19,3 +28,5 @@ service vendor.imsdatadaemon /vendor/bin/imsdatadaemon
     group radio wifi inet vendor_qti_diag log
     disabled
 
+service vendor.power-hal-1-2 /system/bin/true
+    disabled
