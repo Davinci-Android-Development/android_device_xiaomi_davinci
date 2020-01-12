@@ -17,6 +17,9 @@ $(call inherit-product-if-exists, vendor/xiaomi/davinci/davinci-vendor.mk)
 
 PRODUCT_CHARACTERISTICS := nosdcard
 
+# Gapps
+$(call inherit-product-if-exists, vendor/gapps/common/common-vendor.mk)
+
 # Boot animation
 TARGET_SCREEN_HEIGHT := 2340
 TARGET_SCREEN_WIDTH := 1080

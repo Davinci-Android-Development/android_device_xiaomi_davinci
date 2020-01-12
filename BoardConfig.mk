@@ -82,6 +82,9 @@ TARGET_USES_PREBUILT_CAMERA_SERVICE := true
 # Charger Mode
 BOARD_CHARGER_ENABLE_SUSPEND := true
 
+# Dex
+DONT_DEXPREOPT_PREBUILTS := true
+
 # DRM
 TARGET_ENABLE_MEDIADRM_64 := true
 
@@ -169,3 +172,4 @@ BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flag 2
 
 # Inherit from the proprietary version
 -include vendor/xiaomi/davinci/BoardConfigVendor.mk
+-include vendor/gapps/common/BoardConfigVendor.mk
