@@ -15,9 +15,117 @@
 # limitations under the License.
 #
 
+on init
+    # Disable powersaving
+    write /sys/module/lpm_levels/parameters/sleep_disabled 1
+
+    # Enable poweronalarm
+    write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
+
+    # Disable UFS powersaving
+    write /sys/devices/platform/soc/${ro.boot.bootdevice}/clkgate_enable 0
+    write /sys/devices/platform/soc/${ro.boot.bootdevice}/hibern8_on_idle_enable 0
+
+    # Bring back all cores
+    write /sys/devices/system/cpu/cpu0/online 1
+    write /sys/devices/system/cpu/cpu1/online 1
+    write /sys/devices/system/cpu/cpu2/online 1
+    write /sys/devices/system/cpu/cpu3/online 1
+    write /sys/devices/system/cpu/cpu4/online 1
+    write /sys/devices/system/cpu/cpu5/online 1
+    write /sys/devices/system/cpu/cpu6/online 1
+    write /sys/devices/system/cpu/cpu7/online 1
+
+    # Configure governor settings for little cluster
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor schedutil
+    write /sys/devices/system/cpu/cpu0/cpufreq/schedutil/up_rate_limit_us 500
+    write /sys/devices/system/cpu/cpu0/cpufreq/schedutil/down_rate_limit_us 20000
+
+    # Configure governor settings for big cluster
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor schedutil
+    write /sys/devices/system/cpu/cpu4/cpufreq/schedutil/up_rate_limit_us 500
+    write /sys/devices/system/cpu/cpu4/cpufreq/schedutil/down_rate_limit_us 20000
+
+    # Configure governor settings for big big CPU
+    write /sys/devices/system/cpu/cpu7/cpufreq/scaling_governor schedutil
+    write /sys/devices/system/cpu/cpu7/cpufreq/schedutil/up_rate_limit_us 500
+    write /sys/devices/system/cpu/cpu7/cpufreq/schedutil/down_rate_limit_us 20000
+
+    # ZRAM setup
+    write /sys/block/zram0/comp_algorithm lz4
+    write /proc/sys/vm/page-cluster 0
+
+    # Set default schedTune value for foreground/top-app
+    write /dev/stune/foreground/schedtune.prefer_idle 1
+    write /dev/stune/top-app/schedtune.boost 10
+    write /dev/stune/top-app/schedtune.prefer_idle 1
+
+    mkdir /dev/cpuset/camera-daemon
+    write /dev/cpuset/camera-daemon/cpus 0-7
+    write /dev/cpuset/camera-daemon/mems 0
+    chown system system /dev/cpuset/camera-daemon
+    chown system system /dev/cpuset/camera-daemon/tasks
+    chmod 0664 /dev/cpuset/camera-daemon/tasks
+
+    mkdir /dev/cpuset/system 0750 root system
+    write /dev/cpuset/system/cpus 0
+    write /dev/cpuset/system/mems 0
+    chown system system /dev/cpuset/system/tasks
+    chmod 0660 /dev/cpuset/system/tasks
+
+    mkdir /dev/cpuset/system/performance 0750 root system
+    write /dev/cpuset/system/performance/cpus 0
+    write /dev/cpuset/system/performance/mems 0
+    chown system system /dev/cpuset/system/performance/tasks
+    chmod 0660 /dev/cpuset/system/performance/tasks
+
+    mkdir /dev/cpuset/system/background 0750 root system
+    write /dev/cpuset/system/background/cpus 0
+    write /dev/cpuset/system/background/mems 0
+    chown system system /dev/cpuset/system/background/tasks
+    chmod 0660 /dev/cpuset/system/background/tasks
+
+    mkdir /dev/cpuset/application 0750 root system
+    write /dev/cpuset/application/cpus 0
+    write /dev/cpuset/application/mems 0
+    chown system system /dev/cpuset/application/tasks
+    chmod 0660 /dev/cpuset/application/tasks
+
+    mkdir /dev/cpuset/application/performance 0750 root system
+    write /dev/cpuset/application/performance/cpus 0
+    write /dev/cpuset/application/performance/mems 0
+    chown system system /dev/cpuset/application/performance/tasks
+    chmod 0660 /dev/cpuset/application/performance/tasks
+
+    mkdir /dev/cpuset/application/background 0750 root system
+    write /dev/cpuset/application/background/cpus 0
+    write /dev/cpuset/application/background/mems 0
+    chown system system /dev/cpuset/application/background/tasks
+    chmod 0660 /dev/cpuset/application/background/tasks
+
+    write /dev/cpuset/kernel/cpus 0-7
+    write /dev/cpuset/system/cpus 0-7
+    write /dev/cpuset/system/performance/cpus 0-7
+    write /dev/cpuset/system/background/cpus 0-7
+    write /dev/cpuset/system/cpus 0-7
+    write /dev/cpuset/application/cpus 0-7
+    write /dev/cpuset/application/performance/cpus 0-7
+    write /dev/cpuset/application/background/cpus 0-7
+    write /dev/cpuset/application/cpus 0-7
+
 on property:sys.boot_completed=1
+    setprop vendor.setup.power 1
+
     # Turn off scheduler boost at the end
     write /proc/sys/kernel/sched_boost 0
+
+
+on property:vendor.setup.power=1
+    # Enable EAS
+    write /sys/kernel/debug/sched_features ENERGY_AWARE
+
+    # Enable suspend clock reporting
+    write /sys/kernel/debug/clk/debug_suspend 1
 
     # Enable bus-dcvs
     write /sys/devices/platform/soc/soc:qcom,cpu-cpu-llcc-bw/devfreq/soc:qcom,cpu-cpu-llcc-bw/governor bw_hwmon
@@ -94,7 +202,12 @@ on property:sys.boot_completed=1
     write /sys/devices/platform/soc/soc:qcom,cpu0-cpu-ddr-latfloor/devfreq/soc:qcom,cpu0-cpu-ddr-latfloor/governor compute
     write /sys/devices/platform/soc/soc:qcom,cpu0-cpu-ddr-latfloor/devfreq/soc:qcom,cpu0-cpu-ddr-latfloor/polling_interval 10
 
+    # Enable powersaving
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
+
+    # Enable UFS powersaving
+    write /sys/devices/platform/soc/${ro.boot.bootdevice}/clkgate_enable 1
+    write /sys/devices/platform/soc/${ro.boot.bootdevice}/hibern8_on_idle_enable 1
 
     # Enable idle state listener
     write /sys/class/drm/card0/device/idle_encoder_mask 1
@@ -115,3 +228,4 @@ on boot
 # If UART is on, enable console_suspend on boot_complete to save power
 on property:sys.boot_completed=1 && property:init.svc.console=running
     write /sys/module/printk/parameters/console_suspend Y
+
