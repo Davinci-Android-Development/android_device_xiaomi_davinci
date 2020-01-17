@@ -1,10 +1,39 @@
-# For special ro override property
-#support unlimited color temperature adjust
-ro.colorpick_adjust=true
+# System prop for Bluetooth SOC type
+vendor.bluetooth.soc=cherokee
+persist.vendor.btstack.enable.splita2dp=true
+persist.vendor.btstack.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aptxadaptive-aac-ldac
 
-# System property for cabl
-ro.qualcomm.cabl=2
-ro.vendor.display.cabl=2
+# Enable NCS, TOF and HAF
+persist.vendor.camera.enableNCSService=TRUE
+persist.vendor.camera.enableTOFInterface=TRUE
+
+# Dualcam sat fallback setting
+persist.camera.sat.fallback.dist=40
+persist.camera.sat.fallback.dist.d=10
+persist.camera.sat.fallback.luxindex=310
+persist.camera.sat.fallback.lux.d=50
+
+# Expose aux camera for below packages
+vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap
+
+# Enable IZat OptInApp overlay
+#persist.vendor.overlay.izat.optin=rro
+
+# System props for the cne module
+persist.vendor.cne.feature=1
+
+# Set dpm related prop
+persist.vendor.dpm.feature=1
+persist.vendor.dpm.nsrm.bkg.evt=3955
+
+# System props for the data modules
+ro.vendor.use_data_netmgrd=true
+persist.vendor.data.mode=concurrent
+
+# Support night mode 2.0
+ro.vendor.eyecare.threshold=11
+ro.vendor.eyecare.level=5
+ro.vendor.hist.threshold=7
 
 # System property for AD
 ro.vendor.display.ad=1
@@ -12,59 +41,45 @@ ro.vendor.display.ad.sdr_calib_data=/vendor/etc/sdr_config.cfg
 ro.vendor.display.ad.hdr_calib_data=/vendor/etc/hdr_config.cfg
 ro.vendor.display.sensortype=2
 
-# prop for amoled panel
-ro.display.type=oled
-
-# displayfeature use poll to monitor backlight brightness
+# Displayfeature use poll to monitor backlight brightness
 ro.vendor.bl.poll=true
 
-#support night mode 2.0
-ro.vendor.eyecare.threshold=11
-ro.vendor.eyecare.level=5
-ro.vendor.hist.threshold=7
+# System property for displayfeature hidl
+sys.displayfeature_hidl=true
 
-# White Point Calibration
-ro.vendor.whitepoint_calibration_enable=false
+# Property to enable HWC for VDS
+debug.sf.enable_hwc_vds=1
+debug.sf.disable_backpressure=1
 
-#Property for display feature histogram
-ro.vendor.histogram.enable=true
+# IOP properties
+vendor.iop.enable_uxe=0
+vendor.iop.enable_prefetch_ofr=0
+vendor.perf.iop_v3.enable=true
 
-#support LLM2.0 feature
-ro.vendor.radio.llm=true
+# System props for the MM modules
+media.stagefright.thumbnail.prefer_hw_codecs=true
+media.settings.xml=/system/etc/media_profiles_vendor.xml
+vendor.mm.enable.qcom_parser=63963135
 
-#
-# system.prop for sm6150
-#
+# Enable b-services aging propagation
+ro.vendor.qti.sys.fw.bservice_enable=true
 
+# Netflix custom property
+ro.netflix.bsp_rev=Q6150-17263-1
+
+# System prop for NFC DT
+ro.nfc.port=I2C
+
+# RIL
 rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so
-#rild.libargs=-d /dev/smd0
-persist.rild.nitz_plmn=
-persist.rild.nitz_long_ons_0=
-persist.rild.nitz_long_ons_1=
-persist.rild.nitz_long_ons_2=
-persist.rild.nitz_long_ons_3=
-persist.rild.nitz_short_ons_0=
-persist.rild.nitz_short_ons_1=
-persist.rild.nitz_short_ons_2=
-persist.rild.nitz_short_ons_3=
 ril.subscription.types=RUIM
-#ril.subscription.types=NV,RUIM
 DEVICE_PROVISIONED=1
 
 # Set network mode to (T/L/G/W/1X/EVDO, T/L/G/W/1X/EVDO) for 7+7 mode device on DSDS mode
 ro.telephony.default_network=22,22
 ro.telephony.default_cdma_sub=0
 
-# set device to DSDS mode
-persist.radio.multisim.config=dsds
-
-#set ramdump restart_level,mask,suggest add by project for different stage
-persist.vendor.ssr.restart_level=ALL_ENABLE
-
-#enable ramdump
-persist.vendor.ssr.enable_ramdumps=0
-
-#set ims related prop
+# Set ims related prop
 persist.dbg.ims_volte_enable=1
 persist.radio.videopause.mode=1
 persist.data.iwlan.enable=true
@@ -72,251 +87,51 @@ persist.dbg.volte_avail_ovr=1
 persist.dbg.vt_avail_ovr=1
 persist.radio.VT_HYBRID_ENABLE=1
 
-#iwaln vowifi corresponding
+# iwaln vowifi corresponding
 persist.vendor.data.iwlan.enable=true
 
-#allow update modem profile to satify single ip-type pdp request
-persist.data.profile_update=true
-
-#set dpm related prop
-persist.vendor.dpm.feature=1
-persist.vendor.dpm.nsrm.bkg.evt=3955
-
-#set RIJL video call related prop
+# Set RIJL video call related prop
 persist.radio.NO_STAPA=1
 
-# Report redirection call number
-persist.vendor.radio.redir_party_num=1
-
-#Enable manual network selection function and distinguish 2G/3G/4G
-persist.vendor.radio.rat_on=combine
-
-#for special cdma card sms issue
-persist.vendor.radio.force_on_dc=true
-
-#disable strictmode
-persist.sys.strictmode.disable=true
-
-#set SAR feature
-persist.radio.dynamic_sar=false
-
-#
-# system property determining camera HAL to be used for a Video call
-#
+# System property determining camera HAL to be used for a Video call
 # 1 is camera1
 # 2 or anything else is camera2
 persist.radio.VT_CAM_INTERFACE=1
 
-#disble rcs service
-persist.rcs.supported=0
+# Enable RIL feature abot reporting data registration state
+persist.vendor.radio.data_con_rprt=1
 
-dalvik.vm.heapsize=36m
-dev.pm.dyn_samplingrate=1
+# Enable temp dds
+persist.vendor.radio.enable_temp_dds=true
 
-#ro.hdmi.enable=true
-#persist.speaker.prot.enable=false
-qcom.hw.aac.encoder=true
-#
-# system props for the cne module
-#
-persist.vendor.cne.feature=1
+# For special cdma card sms issue
+persist.vendor.radio.force_on_dc=true
 
-#system props for the MM modules
-media.stagefright.enable-player=true
-media.stagefright.enable-http=true
-media.stagefright.enable-aac=true
-media.stagefright.enable-qcp=true
-media.stagefright.enable-fma2dp=true
-media.stagefright.enable-scan=true
-media.stagefright.thumbnail.prefer_hw_codecs=true
-mmp.enable.3g2=true
-media.aac_51_output_enabled=true
-mm.enable.smoothstreaming=true
-media.settings.xml=/system/etc/media_profiles_vendor.xml
-#13631487 is decimal sum of supported codecs in AAL
-#codecs:(PARSER_)AAC AC3 AMR_NB AMR_WB ASF AVI DTS FLV 3GP 3G2 MKV MP2PS MP2TS MP3 OGG QCP WAV FLAC AIFF APE DSD MOV XVID
-vendor.mm.enable.qcom_parser=63963135
-persist.mm.enable.prefetch=true
+# Report redirection call number
+persist.vendor.radio.redir_party_num=1
+persist.vendor.radio.report_codec=1
 
-#Netflix custom property
-ro.netflix.bsp_rev=Q6150-17263-1
-
-#
-# system props for the data modules
-#
-ro.vendor.use_data_netmgrd=true
-persist.vendor.data.mode=concurrent
-
-#system props for time-services
-persist.timed.enable=true
-
-# system property for maximum number of HFP client connections
-bt.max.hfpclient.connections=1
-
-#
-# System props for telephony
 # System prop to turn on CdmaLTEPhone always
 telephony.lteOnCdmaDevice=1
 
-#Simulate sdcard on /data/media
-#
-persist.fuse_sdcard=true
+# Disble rcs service
+persist.rcs.supported=0
 
-#system prop for Bluetooth SOC type
-vendor.bluetooth.soc=cherokee
+# Property to enable Mag filter
+persist.vendor.sensors.enable.mag_filter=true
 
-persist.vendor.btstack.enable.splita2dp=true
-persist.vendor.btstack.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aptxadaptive-aac-ldac
+# Set ramdump restart_level,mask,suggest add by project for different stage
+persist.vendor.ssr.restart_level=ALL_ENABLE
 
-#system prop for wipower support
-ro.bluetooth.emb_wp_mode=false
-ro.bluetooth.wipower=false
-
-#sysprop for WLAN
-ro.wlan.vendor=qcom
-ro.wlan.chip=39xx
-ro.wlan.mimo=0
-
-#sysprop used for WLAN for Android q version
+# Sysprop used for WLAN for Android q version
 ro.hardware.wlan.vendor=qcom
 ro.hardware.wlan.chip=39xx
 ro.hardware.wlan.mimo=1
 
-#
-#snapdragon value add features
-#
-ro.qc.sdk.audio.ssr=false
+# Vendor
+ro.vendor.qti.va_aosp.support
 
-##fluencetype can be "fluence" or "fluencepro" or "none"
-ro.qc.sdk.audio.fluencetype=none
-persist.audio.fluence.voicecall=true
-persist.audio.fluence.voicerec=false
-persist.audio.fluence.speaker=true
-
-#button jack mode & switch
-persist.audio.button_jack.profile=volume
-persist.audio.button_jack.switch=0
-
-#system prop for RmNet Data
-persist.data.df.dev_name=rmnet_usb0
-
-#property to enable user to access Google WFD settings
-persist.debug.wfd.enable=1
-##property to choose between virtual/external wfd display
-persist.sys.wfd.virtual=0
-
-#property to enable HWC for VDS
-debug.sf.enable_hwc_vds=1
-
-# enable tunnel encoding for amrwb
-tunnel.audio.encode = true
-
-#Buffer size in kbytes for compress offload playback
-audio.offload.buffer.size.kb=32
-
-#Enable offload audio video playback by default
-av.offload.enable=true
-
-#enable voice path for PCM VoIP by default
-use.voice.path.for.pcm.voip=true
-
-# system prop for NFC DT
-ro.nfc.port=I2C
-
-#enable dsp gapless mode by default
-audio.offload.gapless.enabled=true
-
-#initialize QCA1530 detection
-sys.qca1530=detect
-
-#Enable stm events
-persist.debug.coresight.config=stm-events
-
-config.disable_rtt=true
-
-#Bringup properties
-persist.radio.atfwd.start=false
-
-#Increase cached app limit
-ro.vendor.qti.sys.fw.bg_apps_limit=60
-
-#Enable ZRAM
-ro.vendor.qti.config.zram=false
-
-#IOP properties
-vendor.iop.enable_uxe=0
-vendor.iop.enable_prefetch_ofr=0
-vendor.perf.iop_v3.enable=true
-#Property to enable perf boosts from System Server
-vendor.perf.gestureflingboost.enable=true
-#Property to enable WorkloadClassifier
-vendor.perf.workloadclassifier.enable=true
-
-#Expose aux camera for below packages
-vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.qualcomm.saltproject2,com.miui.cit,com.android.camera
-
-#enable IZat OptInApp overlay
-#persist.vendor.overlay.izat.optin=rro
-
-#Property to enable Mag filter
-persist.vendor.sensors.enable.mag_filter=true
-
-# ro.location properties below are used in conjunction
-# with NLP_MODE setting in /vendor/etc/izat.conf
-# either as the main network provider or as a fallback
-# provider depending on NLP_MODE that is set
-# These properties are optional and will not cause
-# issues if not set to existing packages.
-# ro.location.osnlp.package sets the name of default
-# OS sepecific network location provider package to use
-# ro.location.osnlp.region.package is set to the name
-# of the alternative network location provider package
-# to be used for a particular region where the default
-# network location provider is not functional
-ro.location.osnlp.package=com.google.android.gms
-ro.location.osnlp.region.package=
-
-# For special rw override property
-#Enable NCS, TOF and HAF
-persist.vendor.camera.enableNCSService=TRUE
-persist.vendor.camera.enableTOFInterface=TRUE
-
-#dualcam sat fallback setting
-persist.camera.sat.fallback.dist=40
-persist.camera.sat.fallback.dist.d=10
-persist.camera.sat.fallback.luxindex=310
-persist.camera.sat.fallback.lux.d=50
-
-#enable RIL feature abot reporting data registration state
-persist.vendor.radio.data_con_rprt=1
-
-# enable b-services aging propagation
-ro.vendor.qti.sys.fw.bservice_enable=true
-
-# enable temp dds
-persist.vendor.radio.enable_temp_dds=true
-
-#quick charge type detect
-persist.quick.charge.detect=1
-
-#system property for displayfeature hidl
-sys.displayfeature_hidl=true
-
-#system property for HBM mode
-vendor.hbm.enable=true
-
-#modem SAR backoff properties
-persist.radio.dynamic_sar=true
-
-#system prop for Bluetooth TWS+ feature
-persist.vendor.btstack.enable.twsplus=true
-persist.vendor.btstack.connect.peer_earbud=true
-persist.vendor.btstack.enable.twsplussho=true
-
-#enable bg dexopt
-persist.bg.dexopt.enable=true
-
-# display density
+# Display density
 ro.sf.lcd_density=440
 
 # SurfaceFlinger
