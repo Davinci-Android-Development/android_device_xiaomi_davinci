@@ -164,4 +164,3 @@ BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flag 2
 
 # Inherit from the proprietary version
 -include vendor/xiaomi/davinci/BoardConfigVendor.mk
--include vendor/gapps/common/BoardConfigVendor.mk
