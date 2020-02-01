@@ -14,12 +14,14 @@
 // limitations under the License.
 
 cc_binary {
-    name: "lineage.biometrics.fingerprint.inscreen@1.0-service.xiaomi_davinci",
     relative_install_path: "hw",
-    vintf_fragments: ["lineage.biometrics.fingerprint.inscreen@1.0-service.xiaomi_davinci.xml"],
-    init_rc: ["lineage.biometrics.fingerprint.inscreen@1.0-service.xiaomi_davinci.rc"],
     defaults: ["hidl_defaults"],
-    srcs: ["service.cpp", "FingerprintInscreen.cpp"],
+    name: "lineage.biometrics.fingerprint.inscreen@1.0-service.xiaomi_davinci",
+    init_rc: ["lineage.biometrics.fingerprint.inscreen@1.0-service.xiaomi_davinci.rc"],
+    srcs: [
+	"service.cpp",
+        "FingerprintInscreen.cpp",
+    ],
     shared_libs: [
         "libbase",
         "libhardware",

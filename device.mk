@@ -70,6 +70,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     lineage.biometrics.fingerprint.inscreen@1.0-service.xiaomi_davinci
 
+PRODUCT_COPY_FILES += \
+    vendor/havoc/config/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml:system/etc/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml
+
 # FM
 PRODUCT_PACKAGES += \
     FM2 \
