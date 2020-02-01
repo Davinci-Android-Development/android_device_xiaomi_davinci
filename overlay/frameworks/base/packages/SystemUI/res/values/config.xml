@@ -56,8 +56,4 @@
         <item>0</item>
         <item>0</item>
     </integer-array>
-
-    <!-- Color of the FOD view -->
-    <color name="config_fodColor">#00ffffff</color>
-
 </resources>
