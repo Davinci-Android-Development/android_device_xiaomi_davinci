@@ -28,6 +28,11 @@ DEVICE_PACKAGE_OVERLAYS += \
 # VNDK
 PRODUCT_TARGET_VNDK_VERSION := 29
 
+# Properties
+-include $(LOCAL_PATH)/system_prop.mk
+
+RODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
+
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.telephony.ims.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.telephony.ims.xml \
