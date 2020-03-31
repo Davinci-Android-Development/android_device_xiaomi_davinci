@@ -85,4 +85,9 @@
     <string name="takeback_camera_front_failed">Couldn\'t close front camera. Try again.</string>
     <string name="popup_camera_front_failed">Couldn\'t open front camera. Try again.</string>
 
+    <!-- DC dimming settings -->
+    <string name="dc_dimming_enable_title">DC Dimming</string>
+    <string name="dc_dimming_enable_summary">Reduces eye strain in low light conditions</string>
+    <string name="dc_dimming_enable_summary_not_supported">DC Dimming is not currently supported by the kernel</string>
+
 </resources>
