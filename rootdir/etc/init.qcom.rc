@@ -88,6 +88,11 @@ on early-boot
     write /sys/bus/msm_subsys/devices/subsys8/restart_level "related"
 
 on boot
+
+    # Allow system to modify exposure adjustment state
+    chown system system /sys/devices/platform/soc/soc:qcom,dsi-display/msm_fb_ea_enable
+    chmod 0660 /sys/devices/platform/soc/soc:qcom,dsi-display/msm_fb_ea_enable
+
     chown bluetooth net_bt /sys/class/rfkill/rfkill0/state
     chown bluetooth net_bt /sys/class/rfkill/rfkill0/type
     chmod 0660 /sys/class/rfkill/rfkill0/state
