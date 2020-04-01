@@ -114,6 +114,7 @@ ro.telephony.iwlan_operation_mode=legacy
 debug.egl.hw=0
 debug.enable.sglscale=1
 debug.gralloc.enable_fb_ubwc=1
+debug.gralloc.gfx_ubwc_disable=0
 debug.mdpcomp.logs=0
 debug.sf.early_phase_offset_ns=500000
 debug.sf.early_app_phase_offset_ns=500000
