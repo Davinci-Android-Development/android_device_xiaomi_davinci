@@ -9,7 +9,3 @@
 -keep class org.lineageos.settings.popupcamera.* {
   *;
 }
-
--keep class org.lineageos.settings.display.* {
-  *;
-}
