@@ -15,9 +15,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_davinci.mk
+    $(LOCAL_DIR)/aosp_davinci.mk
 
 COMMON_LUNCH_CHOICES := \
-    lineage_davinci-user \
-    lineage_davinci-userdebug \
-    lineage_davinci-eng
+    aosp_davinci-user \
+    aosp_davinci-userdebug \
+    aosp_davinci-eng
