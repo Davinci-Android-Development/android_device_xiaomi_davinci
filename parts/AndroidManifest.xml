@@ -31,8 +31,8 @@
         android:protectionLevel="normal|signature|system" />
 
     <uses-sdk
-        android:minSdkVersion="24"
-        android:targetSdkVersion="24"/>
+        android:minSdkVersion="29"
+        android:targetSdkVersion="29"/>
 
     <application
         android:label="@string/device_settings_app_name"
