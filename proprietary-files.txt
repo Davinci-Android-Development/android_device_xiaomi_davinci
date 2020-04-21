@@ -66,7 +66,7 @@ vendor/lib64/mibokeh_712_opencl.bin
 vendor/lib64/libc++_shared.so
 vendor/lib/librice.so
 
-# Camera components
+# Camera (components)
 vendor/lib64/camera/components/com.almalence.node.sr.so
 vendor/lib64/camera/components/com.altek.node.depurple.so
 vendor/lib64/camera/components/com.altek.node.distortioncorrection.so
@@ -132,7 +132,7 @@ vendor/lib64/camera/components/etc/visidon_clearshot_params.xml
 vendor/lib64/camera/components/libdepthmapwrapper.so
 vendor/lib64/camera/components/libmmcamera_cac3.so
 
-# Camera configs
+# Camera (configs)
 vendor/etc/camera/almalence_sr_params_tele.config
 vendor/etc/camera/almalence_sr_params_wide.config
 vendor/etc/camera/beauty_ui9_intelligent_params.config
@@ -152,7 +152,7 @@ vendor/etc/camera/lf_facerank_model.bin
 vendor/etc/camera/megviifacepp_0_5_2_model
 vendor/etc/camera/sdm_ys_32p_120_21_5_perturb50.bin
 
-# Camera sensors
+# Camera (sensors)
 vendor/lib64/camera/com.qti.sensor.imx582_davinci.so
 vendor/lib64/camera/com.qti.sensor.imx586_davinci.so
 vendor/lib64/camera/com.qti.sensormodule.davinci_luxvisions_imx582.bin
@@ -182,5 +182,11 @@ vendor/lib64/camera/fdconfigpreviewlite.bin
 vendor/lib64/camera/fdconfigvideo.bin
 vendor/lib64/camera/fdconfigvideolite.bin
 
-# Camera firmware
+# Camera (firmware)
 vendor/firmware/CAMERA_ICP.elf
+
+# Camera (motor)
+vendor/bin/hw/vendor.xiaomi.hardware.motor@1.0-service
+vendor/lib64/hw/vendor.xiaomi.hardware.motor@1.0-impl.so
+vendor/lib64/mi.motor.daemon.so
+vendor/lib64/vendor.xiaomi.hardware.motor@1.0.so
