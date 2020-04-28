@@ -30,20 +30,14 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.media.AudioAttributes;
 import android.media.SoundPool;
-import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.IBinder;
-import android.os.SystemClock;
-import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.util.Log;
 import android.view.WindowManager;
-import android.widget.Button;
 
 import org.lineageos.settings.R;
 import org.lineageos.internal.util.FileUtils;
-import org.lineageos.settings.utils.LimitSizeList;
-
 import vendor.xiaomi.hardware.motor.V1_0.IMotor;
 import vendor.xiaomi.hardware.motor.V1_0.IMotorCallback;
 import vendor.xiaomi.hardware.motor.V1_0.MotorEvent;
@@ -109,21 +103,16 @@ public class PopupCameraService extends Service {
     private static final int MOTOR_STATUS_REQUEST_CALIB = 19;
 
     // Error dialog
-    private boolean mDialogShowing;
+    private boolean mErrorDialogShowing;
     private int mPopupFailedRecord = 0;
     private int mTakebackFailedRecord = 0;
     private static final int POPUP_FAILED_MAX_TRIES = 3;
     private static final int TAKEBACK_FAILED_MAX_TRIES = 3;
 
-    // Frequent dialog
-    private static final int FREQUENT_TRIGGER_COUNT = SystemProperties.getInt("persist.sys.popup.frequent_times", 10);
-    private LimitSizeList<Long> mPopupRecordList;
-
     @Override
     public void onCreate() {
         mSensorManager = getSystemService(SensorManager.class);
         mFreeFallSensor = mSensorManager.getDefaultSensor(FREE_FALL_SENSOR_ID);
-        mPopupRecordList = new LimitSizeList<>(FREQUENT_TRIGGER_COUNT);
         registerReceiver();
         mPopupCameraPreferences = new PopupCameraPreferences(this);
         mSoundPool = new SoundPool.Builder().setMaxStreams(1)
@@ -199,23 +188,16 @@ public class PopupCameraService extends Service {
         }
     }
 
-    private void checkFrequentOperate() {
-        mPopupRecordList.add(Long.valueOf(SystemClock.elapsedRealtime()));
-        if (mPopupRecordList.isFull() && ((Long) mPopupRecordList.getLast()).longValue() - ((Long) mPopupRecordList.getFirst()).longValue() < 20000) {
-            showFrequentOperateDialog();
-        }
-    }
-
     private void forceTakeback(){
         mCameraState = closeCameraState;
         updateMotor();
     }
 
     private void handleError(int status){
-        if (mDialogShowing){
+        if (mErrorDialogShowing){
             return;
         }
-        mDialogShowing = true;
+        mErrorDialogShowing = true;
         goBackHome();
         mHandler.post(() -> {
             boolean needsCalib = false;
@@ -265,7 +247,7 @@ public class PopupCameraService extends Service {
             alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
                 @Override
                 public void onDismiss(DialogInterface dialogInterface) {
-                    mDialogShowing = false;
+                    mErrorDialogShowing = false;
                 }
             });
         });
@@ -330,45 +312,6 @@ public class PopupCameraService extends Service {
         });
     }
 
-    private void showFrequentOperateDialog(){
-        if (mDialogShowing){
-            return;
-        }
-        mDialogShowing = true;
-        mHandler.post(() -> {
-            Resources res = getResources();
-            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this, R.style.SystemAlertDialogTheme)
-                    .setTitle(res.getString(R.string.popup_camera_tip))
-                    .setMessage(res.getString(R.string.stop_operate_camera_frequently))
-                    .setPositiveButton(res.getString(android.R.string.ok) + " (5)", null);
-            AlertDialog alertDialog = alertDialogBuilder.create();
-            alertDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_KEYGUARD_DIALOG);
-            alertDialog.setCancelable(false);
-            alertDialog.setCanceledOnTouchOutside(false);
-            alertDialog.show();
-            alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-                @Override
-                public void onDismiss(DialogInterface dialogInterface) {
-                    mDialogShowing = false;
-                }
-            });
-            final Button btn = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
-            btn.setEnabled(false);
-            CountDownTimer countDownTimer = new CountDownTimer(6000, 1000) {
-                @Override
-                public void onTick(long millisUntilFinished) {
-                    btn.setText(res.getString(android.R.string.ok) + " (" + Long.valueOf(millisUntilFinished / 1000) + ")");
-                }
-
-                @Override
-                public void onFinish() {
-                    btn.setEnabled(true);
-                    btn.setText(res.getString(android.R.string.ok));
-                }
-            };
-            countDownTimer.start();
-        });
-    }
 
     private void updateMotor() {
         final Runnable r = new Runnable() {
@@ -390,14 +333,12 @@ public class PopupCameraService extends Service {
                         playSoundEffect(openCameraState);
                         mMotor.popupMotor(1);
                         mSensorManager.registerListener(mFreeFallListener, mFreeFallSensor, SensorManager.SENSOR_DELAY_NORMAL);
-                        checkFrequentOperate();
                     } else if (mCameraState.equals(closeCameraState) && (status == MOTOR_STATUS_POPUP_OK || status == MOTOR_STATUS_CALIB_OK)) {
                         mPopupFailedRecord = 0;
                         lightUp();
                         playSoundEffect(closeCameraState);
                         mMotor.takebackMotor(1);
                         mSensorManager.unregisterListener(mFreeFallListener, mFreeFallSensor);
-                        checkFrequentOperate();
                     } else {
                         mMotorBusy = false;
                         if (status == MOTOR_STATUS_REQUEST_CALIB || status == MOTOR_STATUS_POPUP_JAMMED || status == MOTOR_STATUS_TAKEBACK_JAMMED || status == MOTOR_STATUS_CALIB_ERROR){
