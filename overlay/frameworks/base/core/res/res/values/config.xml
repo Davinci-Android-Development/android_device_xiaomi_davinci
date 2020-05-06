@@ -618,4 +618,7 @@
     <integer-array name="config_keyboardTapVibePattern">
         <item>20</item>
     </integer-array>
+
+    <!-- Whether device has screen with higher aspect ratio -->
+    <bool name="config_haveHigherAspectRatioScreen">true</bool>
 </resources>
