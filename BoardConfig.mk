@@ -41,6 +41,9 @@ TARGET_2ND_CPU_VARIANT := cortex-a9
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "qualcomm-hidl"
 
+# ANXCamera
+-include vendor/aeonax/ANXCamera/BoardConfigAnx.mk
+
 # Assert
 TARGET_OTA_ASSERT_DEVICE := davinci,davinciin
 
