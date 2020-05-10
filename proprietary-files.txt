@@ -105,6 +105,7 @@ vendor/firmware/tfa98xx.cnt
 
 # Audio (soundtrigger)
 vendor/lib/hw/sound_trigger.primary.sm6150.so
+vendor/lib/librice.so
 
 # Audio (HAL)
 vendor/lib/hw/audio.primary.sm6150.so
@@ -190,7 +191,6 @@ vendor/lib64/libvidhance.so
 vendor/lib64/libXMFD_AgeGender.so
 vendor/lib64/mibokeh_712_opencl.bin
 vendor/lib64/libc++_shared.so
-vendor/lib/librice.so
 
 # Camera (components)
 vendor/lib64/camera/components/com.almalence.node.sr.so
