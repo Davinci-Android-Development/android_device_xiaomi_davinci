@@ -107,6 +107,8 @@ vendor/lib/librice.so
 vendor/lib/hw/audio.primary.sm6150.so
 
 # Bluetooth
+product/lib64/libaptX_encoder.so
+product/lib64/libaptXHD_encoder.so
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
 vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc
 vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so
