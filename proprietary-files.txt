@@ -598,12 +598,6 @@ vendor/etc/xtwifi.conf
 # IMS
 lib64/libdiag_system.so
 -product/app/uceShimService/uceShimService.apk
-product/etc/permissions/com.qualcomm.qti.imscmservice-V2.0-java.xml
-product/etc/permissions/com.qualcomm.qti.imscmservice-V2.1-java.xml
-product/etc/permissions/com.qualcomm.qti.imscmservice-V2.2-java.xml
-product/framework/com.qualcomm.qti.imscmservice-V2.0-java.jar
-product/framework/com.qualcomm.qti.imscmservice-V2.1-java.jar
-product/framework/com.qualcomm.qti.imscmservice-V2.2-java.jar
 product/lib64/com.qualcomm.qti.imscmservice@1.0.so
 product/lib64/com.qualcomm.qti.imscmservice@2.0.so
 product/lib64/com.qualcomm.qti.imscmservice@2.1.so
