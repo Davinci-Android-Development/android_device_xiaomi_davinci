@@ -82,6 +82,8 @@ vendor.audio_hal.period_multiplier=3
 vendor.audio_hal.period_size=192
 
 # Bluetooth
+persist.bt.enableAptXHD=true 
+persist.service.btui.use_aptx=1 
 persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac
 persist.bluetooth.a2dp_offload.disabled=false
 persist.vendor.bt.aac_frm_ctl.enabled=true
