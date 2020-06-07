@@ -42,4 +42,7 @@
 
     <!-- Whether to show biometric help only when failed -->
     <bool name="config_biometricHelpShowOnlyWhenFailed">true</bool>
+
+    <!-- Whether SystemUI ignores notch -->
+    <bool name="hide_view_behind_notch">true</bool>
 </resources>
