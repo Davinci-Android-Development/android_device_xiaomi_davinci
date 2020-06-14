@@ -35,3 +35,5 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
+# Havoc
+export export HAVOC_BUILD_TYPE=Official
