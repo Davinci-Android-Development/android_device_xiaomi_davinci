@@ -45,13 +45,7 @@
         <service android:name=".doze.DozeService"
                  android:permission="XiaomiDozeService">
         </service>
-
-        <service android:name="org.lineageos.settings.popupcamera.PopupCameraService"
-                 android:permission="org.pixelexperience.device.MANAGE_POPUP_CAMERA_SERVICE"
-                 android:exported="true"
-                 android:directBootAware="true">
-        </service>
-
+        
         <service
             android:name=".display.DcDimmingTileService"
             android:icon="@drawable/ic_dc_tile"
