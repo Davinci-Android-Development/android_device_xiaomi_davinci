@@ -23,6 +23,7 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 
 # Call the proprietary setup
 $(call inherit-product, vendor/xiaomi/davinci/davinci-vendor.mk)
+$(call inherit-product, vendor/ANXCamera/anx-product.mk)
 
 # AID/fs configs
 PRODUCT_PACKAGES += \

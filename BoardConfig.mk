@@ -41,6 +41,9 @@ TARGET_2ND_CPU_VARIANT := cortex-a9
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "qualcomm-hidl"
 
+# ANXCamera
+include vendor/ANXCamera/anx-board.mk
+
 # Assert
 TARGET_OTA_ASSERT_DEVICE := davinci,davinciin
 
@@ -70,7 +73,6 @@ TARGET_NO_BOOTLOADER := true
 
 # Camera
 TARGET_USES_QTI_CAMERA_DEVICE := true
-TARGET_USES_PREBUILT_CAMERA_SERVICE := true
 
 # Charger
 BOARD_CHARGER_ENABLE_SUSPEND := true

@@ -32,8 +32,5 @@ PRODUCT_MANUFACTURER := Xiaomi
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
-# Inherit from custom vendor
-$(call inherit-product, vendor/ANXCamera/config.mk)
-
 # Havoc
 export export HAVOC_BUILD_TYPE=Official
