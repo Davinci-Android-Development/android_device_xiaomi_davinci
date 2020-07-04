@@ -106,7 +106,6 @@ ro.telephony.iwlan_operation_mode=legacy
 # Display
 debug.egl.hw=0
 debug.mdpcomp.logs=0
-debug.sf.disable_backpressure=1
 debug.sf.early_phase_offset_ns=500000
 debug.sf.early_app_phase_offset_ns=500000
 debug.sf.early_gl_phase_offset_ns=3000000
