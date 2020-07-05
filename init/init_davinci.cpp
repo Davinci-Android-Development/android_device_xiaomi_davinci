@@ -94,11 +94,13 @@ void vendor_load_properties() {
         fingerprint = "Xiaomi/davinci/davinci:10/QKQ1.190825.002/V12.0.1.0.QFJMIXM:user/release-keys";
         description = "davinci-user 10 QKQ1.190825.002 V12.0.1.0.QFJMIXM release-keys";
         mod_device = "davinci_global";
+        property_override("ro.boot.product.hardware.sku", "davinci");
     } else if (region == "CN") {
         model = "Redmi K20";
         device = "davinci";
         fingerprint = "Xiaomi/davinci/davinci:10/QKQ1.190825.002/V11.0.6.0.QFJCNXM:user/release-keys";
         description = "davinci-user 10 QKQ1.190825.002 V11.0.6.0.QFJCNXM release-keys";
+        property_override("ro.boot.product.hardware.sku", "davinci");
     } else if (region == "INDIA") {
         model = "Redmi K20";
         device = "davinciin";
