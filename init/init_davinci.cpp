@@ -111,7 +111,7 @@ void vendor_load_properties() {
 
     // SafetyNet workaround
     property_override("ro.boot.verifiedbootstate", "green");
-    fingerprint = "google/coral/coral:10/QQ3A.200605.001/6392402:user/release-keys";
+    fingerprint = "google/coral/coral:10/QQ3A.200705.002/6506677:user/release-keys";
 
     set_ro_build_prop("fingerprint", fingerprint);
     set_ro_product_prop("device", device);
