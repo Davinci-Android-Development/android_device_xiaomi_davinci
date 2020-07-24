@@ -586,10 +586,6 @@
     <!-- Shows the required view for in-display fingerprint -->
     <bool name="config_supportsInDisplayFingerprint">true</bool>
 
-    <!-- Component name of popup camera service -->
-    <string name="config_popUpCameraServiceComponentName" translatable="false">org.lineageos.settings/org.lineageos.settings.popupcamera.PopupCameraService</string>
-
-
     <!-- Whether device has screen with higher aspect ratio -->
     <bool name="config_haveHigherAspectRatioScreen">true</bool>
 
@@ -598,5 +594,4 @@
 
     <!-- Whether device has a screen with a higher aspect ratio -->
     <bool name="config_haveHigherAspectRatioScreen">true</bool>
-
 </resources>
