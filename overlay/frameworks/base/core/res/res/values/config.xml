@@ -627,4 +627,7 @@
 
     <!-- Whether the device supports Smart Pixels -->
     <bool name="config_enableSmartPixels">true</bool>
+
+    <!-- Whether device has notification LED -->
+    <bool name="config_hasNotificationLed">false</bool>
 </resources>
