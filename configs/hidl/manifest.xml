@@ -431,13 +431,14 @@
         </interface>
     </hal>
     <hal format="hidl">
-        <name>vendor.lineage.trust</name>
+        <name>vendor.nxp.hardware.nfc</name>
         <transport>hwbinder</transport>
-        <version>1.0</version>
+        <version>1.2</version>
         <interface>
-            <name>IUsbRestrict</name>
+            <name>INqNfc</name>
             <instance>default</instance>
         </interface>
+        <fqname>@1.2::INqNfc/default</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.qti.data.factory</name>
