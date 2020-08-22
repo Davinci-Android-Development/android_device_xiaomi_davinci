@@ -40,10 +40,6 @@ Return<bool> AntiFlicker::isEnabled() {
     return std::stoi(android::base::Trim(buf)) == 1;
 }
 
-Return<bool> AntiFlicker::showWarning() {
-    return true;
-}
-
 Return<bool> AntiFlicker::setEnabled(bool enabled) {
     if (!android::base::WriteStringToFile((enabled ? "1" : "0"), kDcDimmingStatusPath)) {
         LOG(ERROR) << "Failed to write " << kDcDimmingStatusPath;

@@ -35,7 +35,6 @@ class AntiFlicker : public IAntiFlicker {
   public:
     // Methods from ::vendor::lineage::livedisplay::V2_0::IAntiFlicker follow.
     Return<bool> isEnabled() override;
-    Return<bool> showWarning() override;
     Return<bool> setEnabled(bool enabled) override;
 };
 
